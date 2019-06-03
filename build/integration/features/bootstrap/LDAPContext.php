@@ -26,8 +26,12 @@ use Behat\Gherkin\Node\TableNode;
 use PHPUnit\Framework\Assert;
 
 class LDAPContext implements Context {
-	use BasicStructure;
-	use CommandLine;
+	use BasicStructure,
+		CommandLine,
+		Sharing
+	{
+		BasicStructure insteadof Sharing;
+	}
 
 	protected $configID;
 
